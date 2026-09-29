@@ -1,0 +1,45 @@
+/* responsive.css — desktop is the default; these rules adapt to tablet and mobile.
+   Load this file LAST so it can override the rules above. */
+
+/* Tablet: compact icon-only sidebar */
+@media (max-width: 1199px) and (min-width: 768px) {
+  :root { --sidebar-w: 68px; }
+  .sidebar__brand span, .sidebar__group-label, .nav-link span { display: none; }
+  .sidebar__brand { justify-content: center; padding: var(--space-4) 0; }
+  .nav-link { justify-content: center; width: calc(100% - var(--space-4)); }
+  .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Mobile: off-canvas sidebar opened by the hamburger button */
+@media (max-width: 767px) {
+  .app { grid-template-columns: minmax(0, 1fr); }
+  .sidebar {
+    position: fixed; left: 0; top: 0; width: 264px;
+    transform: translateX(-100%); transition: transform 0.2s ease;
+  }
+  .sidebar.is-open { transform: translateX(0); }
+  .topbar { padding: 0 var(--space-3); }
+  .topbar__menu { display: inline-flex; }
+  .topbar__user-meta { display: none; }
+  .content { padding: var(--space-4); }
+  .stat-grid, .dashboard-grid, .form-grid { grid-template-columns: minmax(0, 1fr); }
+  .btn { min-height: 44px; }           /* touch-friendly targets */
+  .btn--sm { min-height: 38px; }
+  .toast-region { left: var(--space-4); }
+  .toast { max-width: none; }
+
+  .login { grid-template-columns: minmax(0, 1fr); }
+  .login__brand { padding: var(--space-5); gap: var(--space-4); }
+  .login__headline { font-size: 1.8rem; }
+  .login__points { display: none; }
+}
+
+/* Committee screens */
+@media (max-width: 900px) {
+  .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .stat-grid { grid-template-columns: 1fr; }
+  .auction-example { grid-template-columns: 1fr; }
+  .auction-example__highlight { grid-column: auto; }
+}

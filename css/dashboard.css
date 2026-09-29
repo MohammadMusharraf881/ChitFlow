@@ -1,0 +1,13 @@
+/* dashboard.css — stat cards and dashboard grids. */
+
+.stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-4); margin-bottom: var(--space-5); }
+.stat { padding: var(--space-4) var(--space-5); }
+.stat__label { color: var(--muted); font-size: 0.84rem; margin-bottom: var(--space-1); }
+.stat__value { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; line-height: 1.15; }
+.stat__sub { color: var(--muted); font-size: 0.8rem; margin-top: var(--space-1); }
+.progress { height: 8px; border-radius: 4px; background: var(--border); overflow: hidden; margin-top: var(--space-3); }
+.progress__bar { height: 100%; background: var(--primary); border-radius: 4px; }
+
+.dashboard-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+.dashboard-grid .card--wide { grid-column: 1 / -1; }
+.stat__value--badge { font-size: 1rem; padding-top: var(--space-1); }

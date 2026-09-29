@@ -1,0 +1,109 @@
+/* components.css — buttons, badges, cards, modal, toast, loading/empty/error states, avatar, tabs. */
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  min-height: 40px; padding: 0 var(--space-4);
+  border: 1px solid transparent; border-radius: var(--radius-sm);
+  font: inherit; font-weight: 600; font-size: 0.9rem;
+  cursor: pointer; text-decoration: none;
+}
+.btn:hover { text-decoration: none; }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn--primary { background: var(--primary); color: #fff; }
+.btn--primary:hover:not(:disabled) { background: var(--primary-dark); }
+.btn--secondary { background: var(--surface); color: var(--text); border-color: var(--border); }
+.btn--secondary:hover:not(:disabled) { background: var(--surface-alt); }
+.btn--danger { background: var(--danger); color: #fff; }
+.btn--ghost { background: transparent; color: var(--primary); }
+.btn--ghost:hover:not(:disabled) { background: var(--primary-soft); }
+.btn--sm { min-height: 32px; padding: 0 var(--space-3); font-size: 0.82rem; }
+.btn--block { width: 100%; }
+
+/* ---------- Badges (payment / auction / payout / dispute statuses) ---------- */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 2px 10px; border-radius: 999px;
+  font-size: 0.78rem; font-weight: 600; white-space: nowrap;
+}
+.badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.badge--success  { background: var(--success-soft);  color: var(--success); }
+.badge--warning  { background: var(--warning-soft);  color: var(--warning); }
+.badge--danger   { background: var(--danger-soft);   color: var(--danger); }
+.badge--info     { background: var(--info-soft);     color: var(--info); }
+.badge--disputed { background: var(--disputed-soft); color: var(--disputed); }
+.badge--neutral  { background: var(--surface-alt);   color: var(--muted); border: 1px solid var(--border); }
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.card__header {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  border-bottom: 1px solid var(--border);
+}
+.card__header h2, .card__header h3 { margin: 0; }
+.card__body { padding: var(--space-5); }
+
+/* ---------- Modal ---------- */
+.modal-backdrop {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(10, 30, 36, 0.55);
+  display: flex; align-items: center; justify-content: center; padding: var(--space-4);
+}
+.modal {
+  background: var(--surface); border-radius: var(--radius-lg);
+  width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto;
+  box-shadow: var(--shadow-md);
+}
+.modal__header { display: flex; justify-content: space-between; align-items: center; padding: var(--space-4) var(--space-5); border-bottom: 1px solid var(--border); }
+.modal__header h2 { margin: 0; }
+.modal__body { padding: var(--space-5); }
+.modal__footer { display: flex; justify-content: flex-end; gap: var(--space-2); padding: var(--space-4) var(--space-5); border-top: 1px solid var(--border); }
+
+/* ---------- Toast ---------- */
+.toast-region {
+  position: fixed; right: var(--space-4); bottom: var(--space-4); z-index: 200;
+  display: flex; flex-direction: column; gap: var(--space-2);
+  max-width: calc(100vw - 2 * var(--space-4));
+}
+.toast {
+  min-width: 260px; max-width: 380px;
+  padding: var(--space-3) var(--space-4);
+  background: var(--text); color: #fff;
+  border-radius: var(--radius-sm); border-left: 4px solid var(--info);
+  box-shadow: var(--shadow-md); font-size: 0.9rem;
+}
+.toast--success { border-left-color: var(--success); }
+.toast--error   { border-left-color: var(--danger); }
+.toast--warning { border-left-color: var(--accent); }
+
+/* ---------- Loading / empty / error states ---------- */
+.state { text-align: center; padding: var(--space-7) var(--space-5); color: var(--muted); }
+.state h3 { color: var(--text); margin-bottom: var(--space-1); }
+.state .btn { margin-top: var(--space-3); }
+.state--error h3 { color: var(--danger); }
+
+.skeleton {
+  height: 14px; border-radius: 4px; margin: var(--space-3) 0;
+  background: linear-gradient(90deg, var(--border) 25%, var(--surface-alt) 50%, var(--border) 75%);
+  background-size: 200% 100%; animation: shimmer 1.4s infinite;
+}
+@keyframes shimmer { to { background-position: -200% 0; } }
+
+/* ---------- Misc ---------- */
+.avatar {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--primary-soft); color: var(--primary-dark);
+  font-weight: 700; font-size: 0.8rem; flex: none;
+}
+.tabs { display: flex; gap: var(--space-1); border-bottom: 1px solid var(--border); overflow-x: auto; margin-bottom: var(--space-5); }
+.tab { padding: var(--space-3) var(--space-4); border: 0; background: transparent; font: inherit; font-weight: 500; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; }
+.tab.is-active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
+.note { padding: var(--space-3) var(--space-4); border-radius: var(--radius-sm); background: var(--info-soft); color: var(--info); font-size: 0.86rem; }
+.note--warning { background: var(--warning-soft); color: var(--warning); }

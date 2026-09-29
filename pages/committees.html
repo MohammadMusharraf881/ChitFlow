@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/layout.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/forms.css">
+  <link rel="stylesheet" href="../css/tables.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+  <link rel="stylesheet" href="../css/committees.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <title>Committees · ChitFlow</title>
+</head>
+<body data-page="committees" data-role="organizer" data-title="Committees">
+  <div class="app">
+    <aside class="sidebar" id="sidebar" aria-label="Sidebar"></aside>
+    <div class="main">
+      <header class="topbar" id="topbar"></header>
+      <main class="content" id="page-content">
+        <div class="page-header">
+          <div>
+            <h1>Committees</h1>
+            <p>Create and manage your rotating committees, rules and cycles.</p>
+          </div>
+          <div class="page-header__actions">
+            <button class="btn btn--primary" id="create-committee-btn">+ Create committee</button>
+          </div>
+        </div>
+
+        <section class="stat-grid" id="committee-stats" aria-label="Committee summary"></section>
+
+        <section class="card">
+          <div class="table-toolbar">
+            <input class="input table-toolbar__search" id="committee-search" type="search" placeholder="Search committees..." aria-label="Search committees">
+            <select class="select" id="committee-status" aria-label="Filter by status">
+              <option value="ALL">All statuses</option>
+              <option value="ACTIVE">Active</option>
+              <option value="INACTIVE">Inactive</option>
+            </select>
+          </div>
+          <div id="committee-list"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="../js/utils.js"></script>
+  <script src="../js/mock-data.js"></script>
+  <script src="../js/api.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/app.js"></script>
+  <script src="../js/committees.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+/* forms.css — inputs, labels, validation messages. */
+
+.field { display: grid; gap: 6px; margin-bottom: var(--space-4); }
+.field label { font-weight: 600; font-size: 0.86rem; }
+.field__hint { font-size: 0.8rem; color: var(--muted); }
+.field__error { font-size: 0.82rem; color: var(--danger); min-height: 0; }
+
+.input, .select, .textarea {
+  width: 100%; min-height: 42px;
+  padding: 9px var(--space-3);
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--surface); color: var(--text);
+  font: inherit;
+}
+.textarea { min-height: 96px; resize: vertical; }
+.input:hover, .select:hover, .textarea:hover { border-color: #B9C8CD; }
+.input:focus, .select:focus, .textarea:focus { outline: 2px solid var(--primary); outline-offset: 0; border-color: var(--primary); }
+.field.has-error .input, .field.has-error .select, .field.has-error .textarea { border-color: var(--danger); }
+
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--space-4); }
+.form-grid .field--full { grid-column: 1 / -1; }
+.form-actions { display: flex; gap: var(--space-2); justify-content: flex-end; margin-top: var(--space-4); }
+.form-message { padding: var(--space-3); border-radius: var(--radius-sm); background: var(--danger-soft); color: var(--danger); font-size: 0.88rem; margin-bottom: var(--space-4); }
