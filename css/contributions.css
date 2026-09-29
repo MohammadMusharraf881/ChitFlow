@@ -1,0 +1,76 @@
+/* contributions.css — contribution register and payment detail UI. */
+
+.payment-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 var(--space-5);
+  margin-bottom: var(--space-4);
+}
+.payment-detail-grid > div {
+  display: grid;
+  gap: 4px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.payment-detail-grid span {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.payment-detail-grid strong {
+  overflow-wrap: anywhere;
+}
+.detail-block {
+  margin-top: var(--space-5);
+}
+.detail-block h3 {
+  margin-bottom: var(--space-3);
+  font-size: 0.95rem;
+}
+.evidence-list, .history-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-2);
+}
+.evidence-list li, .history-list li {
+  padding: var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-alt);
+}
+.evidence-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.evidence-list span, .history-list small {
+  color: var(--muted);
+}
+.history-list {
+  counter-reset: history;
+}
+.history-list li {
+  display: grid;
+  gap: 3px;
+}
+.history-list li::before {
+  counter-increment: history;
+  content: counter(history);
+  float: left;
+  color: var(--primary);
+  font-weight: 700;
+}
+.history-list strong, .history-list span, .history-list small {
+  margin-left: 24px;
+}
+.note + .note {
+  margin-top: var(--space-2);
+}
+
+@media (max-width: 700px) {
+  .payment-detail-grid {
+    grid-template-columns: 1fr;
+  }
+}

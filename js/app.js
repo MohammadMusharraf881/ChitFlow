@@ -60,7 +60,15 @@ const NAV = {
 };
 
 // Pages currently implemented. Links to remaining phases show a toast until those screens are built.
-const BUILT_PAGES = ["login.html", "organizer-dashboard.html", "member-dashboard.html", "committees.html", "committee-details.html"];
+const BUILT_PAGES = [
+  "login.html",
+  "organizer-dashboard.html",
+  "member-dashboard.html",
+  "committees.html",
+  "committee-details.html",
+  "contributions.html",
+  "member-payments.html"
+];
 
 document.addEventListener("DOMContentLoaded", initApp);
 
