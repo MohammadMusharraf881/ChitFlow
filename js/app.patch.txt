@@ -1,0 +1,6 @@
+In js/app.js, add these two entries to BUILT_PAGES:
+
+"auctions.html",
+"member-auctions.html"
+
+Do not replace the whole app.js; keep all existing entries and only add these two filenames.

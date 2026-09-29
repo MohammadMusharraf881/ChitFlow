@@ -2,10 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Public+Sans:wght@400;500;600;700&display=swap">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/layout.css">
   <link rel="stylesheet" href="../css/components.css">
@@ -13,6 +10,7 @@
   <link rel="stylesheet" href="../css/tables.css">
   <link rel="stylesheet" href="../css/dashboard.css">
   <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/frontend-auth.css">
   <title>Sign in · ChitFlow</title>
 </head>
 <body data-page="login">
@@ -31,13 +29,13 @@
     </section>
 
     <section class="login__panel">
-      <div class="login__card">
+      <div class="login__card" id="signin-card">
         <h2>Sign in</h2>
-        <p class="text-muted">Demo mode: pick an account, or type its email with any password.</p>
+        <p class="text-muted">Choose a demo role or use an account you created.</p>
 
         <div class="login__quick">
-          <button class="btn btn--secondary" type="button" data-demo-email="organizer@chitflow.test">Organizer demo</button>
-          <button class="btn btn--secondary" type="button" data-demo-email="member@chitflow.test">Member demo</button>
+          <button class="btn btn--secondary" type="button" data-demo-role="organizer">Organizer / Admin</button>
+          <button class="btn btn--secondary" type="button" data-demo-role="member">Member</button>
         </div>
         <div class="login__divider">or enter details</div>
 
@@ -53,7 +51,52 @@
           </div>
           <button class="btn btn--primary btn--block" id="login-submit" type="submit">Sign in</button>
         </form>
-        <p class="field__hint">Development sign-in only. Real authentication arrives with the backend.</p>
+
+        <p class="login__switch">
+          New to ChitFlow?
+          <button type="button" class="link-button" id="show-register">Create an account</button>
+        </p>
+        <p class="field__hint">Demo authentication currently runs locally. The Node.js backend includes the real registration/login API for the next integration phase.</p>
+      </div>
+
+      <div class="login__card hidden" id="register-card">
+        <h2>Create account</h2>
+        <p class="text-muted">Create a local demo account. It will be available on this browser.</p>
+
+        <div class="form-message hidden" id="register-error" role="alert"></div>
+        <form id="register-form" novalidate>
+          <div class="field">
+            <label for="register-name">Full name</label>
+            <input class="input" id="register-name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="register-email">Email</label>
+            <input class="input" id="register-email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="register-role">Account type</label>
+            <select class="select" id="register-role">
+              <option value="member">Member</option>
+              <option value="organizer">Organizer</option>
+            </select>
+          </div>
+          <div class="form-grid">
+            <div class="field">
+              <label for="register-password">Password</label>
+              <input class="input" id="register-password" type="password" autocomplete="new-password" minlength="8" required>
+            </div>
+            <div class="field">
+              <label for="register-confirm">Confirm password</label>
+              <input class="input" id="register-confirm" type="password" autocomplete="new-password" minlength="8" required>
+            </div>
+          </div>
+          <button class="btn btn--primary btn--block" id="register-submit" type="submit">Create account</button>
+        </form>
+
+        <p class="login__switch">
+          Already have an account?
+          <button type="button" class="link-button" id="show-signin">Back to sign in</button>
+        </p>
       </div>
     </section>
   </div>

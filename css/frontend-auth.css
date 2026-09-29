@@ -1,0 +1,12 @@
+/* Login quick-role selection */
+.login__quick .btn {
+  transition: background-color 0.15s ease, color 0.15s ease,
+              border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.login__quick .btn.is-selected {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(47, 105, 112, 0.15);
+}
